@@ -6,9 +6,13 @@ let type;
 let heights;
 let circleheight = 0;
 
+
 function setup() {
   //set up the screen size and background colour etc
   //Display the pokemon information on the screen
+  //getting the box data
+  var elt = document.getElementById("checkboxes");
+  console.log(elt);
   var canvas = createCanvas(1280, 720);
   canvas.parent("myContainer");
   background(0, 0, 0);
@@ -108,11 +112,14 @@ function colourType(){
 
 function pokemonHeight(){
   if (heights <=4) {circleheight = 200}
-  if (heights >4) {circleheight = 240}
-  if (heights >7) {circleheight = 270}
-  if (heights >10) {circleheight = 300}
-  if (heights >13) {circleheight = 330}
-  if (heights >15) {circleheight = 360}
+  if (heights >4) {circleheight = 220}
+  if (heights >6) {circleheight = 240}
+  if (heights >8) {circleheight = 260}
+  if (heights >10) {circleheight = 280}
+  if (heights >12) {circleheight = 300}
+  if (heights >14) {circleheight = 320}
+  if (heights >16) {circleheight = 340}
+  if (heights >18) {circleheight = 360}
 }
 
 function keyPressed() {
