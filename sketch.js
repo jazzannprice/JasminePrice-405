@@ -1,11 +1,13 @@
-let i;
-let x;
-let y;
-let pos;
-let type;
-let heights;
-let circleheight = 0;
-
+//let i;
+var x = 0;
+var amountdrawn = 0;
+var amountlefttotest = 12;
+//let y;
+//let pos;
+var elt;
+//let type;
+//let heights;
+//let circleheight = 0;
 
 function setup() {
   //set up the screen size and background colour etc
@@ -21,21 +23,21 @@ function setup() {
 }
 
 function preloadagain (){
-  x = 1;
-  pos = 0;
-  y = 0;
-  var elt = document.getElementById("form1")["poketype"].value;
 
-  console.log(elt);
+  //And this one
+  elt = document.getElementById("form1")["poketype"].value;
+
+  console.log("elt ",elt);
 let mapColor = color(255, 255, 255);
-  for (i=0; i<12;){
+amountlefttotest = 12;
+for (i=0; i<12;){
+//while  (x < 12) {
     let num = Math.floor(Math.random() * 801) + 1;
     let url = "https://pokeapi.co/api/v2/pokemon/"+num;
     loadJSON(url, addToPokemonList);
 //when i == 5 change the position to start to draw the next row
-
-    i++;
-
+  i++;
+//  x++;
   }
   noLoop();
 }
@@ -48,59 +50,69 @@ function drawit(pokemonItem){
   //draw your pokemon here
   //console.log("Height: " + pokemonItem.height);
   //console.log("Type: " + pokemonItem.types[0].type.name);
-console.log(pokemonItem.types[0].type.name);
+        //  console.log(pokemonItem.types[0].type.name);
+          //  console.log("elt ",elt);
+            // TEST IF BUTTON CLICKED (elt) = TYPE OF POKEMON FROM API
+  if (elt == pokemonItem.types[0].type.name || elt == "All"){
+    amountdrawn++;
 
-// TEST IF BUTTON CLICKED (elt) = TYPE OF POKEMON FROM API
-if (elt = pokemonItem.types[0].type.name){
-
-
-
+    console.log("elt ",elt, "the type: ", pokemonItem.types[0].type.name, x);
   // displaying 1st line of 6 pokemon on screen
-  if (x<7){
-    //store the height of the pokemon
-    heights = pokemonItem.height;
-    // store the type name of the pokemon
-    type = pokemonItem.types[0].type.name;
-    //console.log(heights, type);
-    // change the colour of the "circle" the pokemon data is presented in based on the pokemon type
-    colourType();
-    fill(mapColor);
-
-    // check height of the circle and change depending on pokemon height
-    pokemonHeight();
-    //console.log(circleheight);
-    // draw cirlce for pokemon
-    ellipse(pos+107, 180, 213, circleheight);
-    fill(0);
-    //console.log(pokemonItem.name);
-    // display pokemon details in circle
-    text("Pokemon: " + pokemonItem.name + "\n Id Number: " + pokemonItem.id + "\n Type: " + pokemonItem.types[0].type.name + "\nWeight: " + pokemonItem.weight + "\nHeight: " + pokemonItem.height + "\n Ability: " + pokemonItem.abilities[0].ability.name, pos, width/9.4, height/3.3);
-    // add one to counter and move the starting position of the next circle along by 213
-    pos = x * 213;
-  }
-
-// displaying 2nd line of pokemon on screen - all the same as the first line but for the next 6 in the array
-// only do 2nd line if ALL selected
-if (elt = "All"){
-
-    if (x>5){
-      type = pokemonItem.types[0].type.name;
+    if (x<7){
+      //store the height of the pokemon
       heights = pokemonItem.height;
+      // store the type name of the pokemon
+      type = pokemonItem.types[0].type.name;
+      //console.log(heights, type);
+      // change the colour of the "circle" the pokemon data is presented in based on the pokemon type
       colourType();
       fill(mapColor);
-
-      // check height of pokemon
+      // check height of the circle and change depending on pokemon height
       pokemonHeight();
-      ellipse(pos+107, 540, 213, circleheight);
+      //console.log(circleheight);
+      // draw cirlce for pokemon
+      ellipse(pos+107, 180, 213, circleheight);
       fill(0);
-      text("Pokemon: " + pokemonItem.name + "\n Id Number: " + pokemonItem.id + "\n Type: " + pokemonItem.types[0].type.name + "\nWeight: " + pokemonItem.weight + "\nHeight: " + pokemonItem.height + "\n Ability: " + pokemonItem.abilities[0].ability.name, pos, width/2.6, height/3.3);
-      pos = y * 213;
-      y++;
+      //console.log(pokemonItem.name);
+      // display pokemon details in circle
+      text("Pokemon: " + pokemonItem.name + "\n Id Number: " + pokemonItem.id + "\n Type: " + pokemonItem.types[0].type.name + "\nWeight: " + pokemonItem.weight + "\nHeight: " + pokemonItem.height + "\n Ability: " + pokemonItem.abilities[0].ability.name, pos, width/9.4, height/3.3);
+      // add one to counter and move the starting position of the next circle along by 213
+      pos = x * 213;
     }
-  x++;
+// displaying 2nd line of pokemon on screen - all the same as the first line but for the next 6 in the array
+// only do 2nd line if ALL selected
+    if (elt == "All"){
+        if (x>5){
+          type = pokemonItem.types[0].type.name;
+          heights = pokemonItem.height;
+          colourType();
+          fill(mapColor);
+
+          // check height of pokemon
+         pokemonHeight();
+          ellipse(pos+107, 540, 213, circleheight);
+          fill(0);
+          text("Pokemon: " + pokemonItem.name + "\n Id Number: " + pokemonItem.id + "\n Type: " + pokemonItem.types[0].type.name + "\nWeight: " + pokemonItem.weight + "\nHeight: " + pokemonItem.height + "\n Ability: " + pokemonItem.abilities[0].ability.name, pos, width/2.6, height/3.3);
+          pos = y * 213;
+          y++;
+        }
+        //x++;
+    }
+    x++;
+  }
+
+if (amountlefttotest == 0){
+  if (amountdrawn < 3){
+    console.log('should now call preload again to test another 12');
+    //not meeting the condition to call again
+    //on click leaves a blan kscreen if doesnt find any - trying to force it to go again automtically
+  preloadagain()
+  }
 }
+amountlefttotest--;
+console.log (amountdrawn, amountlefttotest);
 }
-}
+
 function colourType(){
   if (type.indexOf("normal") >= 0) { mapColor = color(169, 168, 120) }
   if (type.indexOf("fire") >= 0) { mapColor = color(240, 127, 47) }
@@ -134,21 +146,18 @@ function pokemonHeight(){
   if (heights >18) {circleheight = 360}
 }
 
-//function keyPressed() {
-  //if (keyCode === ENTER) {
-    // do preload and draw to refresh data when mouse is clicked
-//    clear();
-  //  background(0, 0, 0);
-  //  textAlign(CENTER);
-  //  textSize(16);
-  //  preloadagain();
-//  }
-// }
 function buttonpressed() {
-    // do preload and draw to refresh data when mouse is clicked
+    // do preload and draw to refresh data when button is clicked
     clear();
     background(0, 0, 0);
     textAlign(CENTER);
     textSize(16);
+    elt = document.getElementById("form1")["poketype"].value;
+    x = 1;
+    pos = 0;
+    y = 0;
+    amountdrawn = 0;
+    amountlefttotest = 12;
+    console.log("elt ",elt);
     preloadagain();
   }
