@@ -1,18 +1,19 @@
 //https://pokeapi.co/api/v2/pokemon
 
-let pokemon;
+let pokemon = [];
 let type;
 //The preload function is executed before initializing the code in setup
 //Loads any related data or media files
 function preload() {
   //The URL is formatted according to the documentation provided by the developers in:
   //https://pokeapi.co/api/v2/pokemon
+for (let i=0; i<7; i++){
 let num = Math.floor(Math.random() * 150) + 1
 
   let url = "https://pokeapi.co/api/v2/pokemon/" + num;
-  pokemon = loadJSON(url);
+  pokemon[i] = loadJSON(url);
 }
-
+}
 function setup() {
   console.log(pokemon); //Return all JSON data
   //Display the pokemon information on the screen
@@ -30,7 +31,7 @@ let pos = 0;
   let mapColor = color(255, 255, 255);
 for (let i=0; i<7; i++){
 
-  type = pokemon.types[0].type.name;
+type = pokemon[i].types[0].type.name;
 
 if (type.indexOf("normal") >= 0) { mapColor = color(169, 168, 120) }
 if (type.indexOf("fire") >= 0) { mapColor = color(240, 127, 47) }
@@ -56,7 +57,7 @@ if (type.indexOf("fairy") >= 0) { mapColor = color(255, 163, 177) }
   fill(mapColor);
   rect(pos, 0, width/6, height/2);
   fill(0);
-  text("Pokemon: " + pokemon.name + "\n Id Number: " + pokemon.id + "\n Type: " + pokemon.types[0].type.name + "\nWeight: " + pokemon.weight + "\nHeight: " + pokemon.height + "\n Ability: " + pokemon.abilities[0].ability.name, pos, width/6-90, height/4);
+  text("Pokemon: " + pokemon[i].name + "\n Id Number: " + pokemon[i].id + "\n Type: " + pokemon[i].types[0].type.name + "\nWeight: " + pokemon[i].weight + "\nHeight: " + pokemon[i].height + "\n Ability: " + pokemon[i].abilities[0].ability.name, pos, width/6-90, height/4);
   pos = i * 200;
 }
 }
