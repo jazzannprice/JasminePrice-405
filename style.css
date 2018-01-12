@@ -17,7 +17,6 @@ h2{
   padding:20px;
 }
 
-
 /* The individual header properties, including the colour, font size and positioning */
 header{
   font-size: 150%;
@@ -26,29 +25,39 @@ header{
   height: 100px;
 }
 
+/* Background colour */
+body{
+  background: black;
+}
+
+/* The pokeball.png image properties */
 #pokeball_img{
   width: 30px;
   height: 30px;
 }
-/* The header decoration */
+
+/* The text adjustments and positioning */
 #imageText{
   top: 20%;
-  right: 85%;
+  left: 1%;
   color: white;
   font-size: 14px;
   font-family: verdana;
   position: absolute;
 }
 
+/* The bulbasaur.png image properties */
 #bulbasaur_img{
   width: 200px;
   height: 200px;
-  padding-right: 1600px;
-  padding-top: 571px;
+  top: 66%;
+  left: 2.5%;
+  position: absolute;
 }
 
+/* The refresh button adjustments and positioning */
 #refresh{
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   font-family: verdana;
   font-weight: bold;
@@ -59,16 +68,26 @@ header{
   font-size: 16px;
   position: absolute;
 }
+
+/* This allows the refresh button to change colour when hovered over */
 #refresh:hover {
     background-color: white; /* Green */
     color: black;
 }
 
+/* The checkbox adjustments and positioning */
 #checkboxes{
+  font-family: verdana;
   color: white;
   top: 30%;
   left: 89%;
   position: absolute;
+}
+
+/* Positioning of the canvas */
+#myContainer{
+  margin: 0px auto;
+  text-align: center;
 }
 
 /* The individual footer properties, including the colour and positioning */
@@ -82,15 +101,4 @@ footer{
 .newFooter{
   font-size: 90%;
   padding:5px;
-}
-
-/* Background colour */
-body{
-  background: black;
-}
-
-/* Positioning of the canvas */
-#myContainer{
-  margin: 0px auto;
-  text-align: center;
 }
