@@ -11,8 +11,7 @@ function setup() {
   //set up the screen size and background colour etc
   //Display the pokemon information on the screen
   //getting the box data
-  var elt = document.getElementById("checkboxes");
-  console.log(elt);
+
   var canvas = createCanvas(1280, 720);
   canvas.parent("myContainer");
   background(0, 0, 0);
@@ -25,19 +24,23 @@ function preloadagain (){
   x = 1;
   pos = 0;
   y = 0;
+  var elt = document.getElementById("form1")["poketype"].value;
+
+  console.log(elt);
 let mapColor = color(255, 255, 255);
   for (i=0; i<12;){
     let num = Math.floor(Math.random() * 801) + 1;
     let url = "https://pokeapi.co/api/v2/pokemon/"+num;
     loadJSON(url, addToPokemonList);
 //when i == 5 change the position to start to draw the next row
+
     i++;
+
   }
   noLoop();
 }
 
-function addToPokemonList(pokemon)
-{
+function addToPokemonList(pokemon) {
   drawit(pokemon);
 }
 
@@ -45,7 +48,12 @@ function drawit(pokemonItem){
   //draw your pokemon here
   //console.log("Height: " + pokemonItem.height);
   //console.log("Type: " + pokemonItem.types[0].type.name);
-  //console.log(x);
+console.log(pokemonItem.types[0].type.name);
+
+// TEST IF BUTTON CLICKED (elt) = TYPE OF POKEMON FROM API
+if (elt = pokemonItem.types[0].type.name){
+
+
 
   // displaying 1st line of 6 pokemon on screen
   if (x<7){
@@ -72,6 +80,9 @@ function drawit(pokemonItem){
   }
 
 // displaying 2nd line of pokemon on screen - all the same as the first line but for the next 6 in the array
+// only do 2nd line if ALL selected
+if (elt = "All"){
+
     if (x>5){
       type = pokemonItem.types[0].type.name;
       heights = pokemonItem.height;
@@ -88,7 +99,8 @@ function drawit(pokemonItem){
     }
   x++;
 }
-
+}
+}
 function colourType(){
   if (type.indexOf("normal") >= 0) { mapColor = color(169, 168, 120) }
   if (type.indexOf("fire") >= 0) { mapColor = color(240, 127, 47) }
@@ -122,8 +134,17 @@ function pokemonHeight(){
   if (heights >18) {circleheight = 360}
 }
 
-function keyPressed() {
-  if (keyCode === ENTER) {
+//function keyPressed() {
+  //if (keyCode === ENTER) {
+    // do preload and draw to refresh data when mouse is clicked
+//    clear();
+  //  background(0, 0, 0);
+  //  textAlign(CENTER);
+  //  textSize(16);
+  //  preloadagain();
+//  }
+// }
+function buttonpressed() {
     // do preload and draw to refresh data when mouse is clicked
     clear();
     background(0, 0, 0);
@@ -131,4 +152,3 @@ function keyPressed() {
     textSize(16);
     preloadagain();
   }
-}

@@ -17,26 +17,29 @@
     </h1>
 
     </header> <!-- Creates the header of my page -->
-    <div id="imageText"> <h3> Hit enter to start! </h3> <h3>Hit enter again to randomize!</h3></div>
+    <div id="imageText"> <h3> Choose Pokemon type or ALL types.</h3></div>
     <div id="checkboxes">
-        <input type="radio" name="pokemon" value="Bug"> Bug <br>
-        <input type="radio" name="pokemon" value="Dark"> Dark <br>
-        <input type="radio" name="pokemon" value="Dragon"> Dragon <br>
-        <input type="radio" name="pokemon" value="Electric"> Electric <br>
-        <input type="radio" name="pokemon" value="Fairy"> Fairy <br>
-        <input type="radio" name="pokemon" value="Fighting"> Fighting <br>
-        <input type="radio" name="pokemon" value="Fire"> Fire <br>
-        <input type="radio" name="pokemon" value="Flying"> Flying <br>
-        <input type="radio" name="pokemon" value="Ghost"> Ghost <br>
-        <input type="radio" name="pokemon" value="Grass"> Grass <br>
-        <input type="radio" name="pokemon" value="Ground"> Ground <br>
-        <input type="radio" name="pokemon" value="Ice"> Ice <br>
-        <input type="radio" name="pokemon" value="Normal"> Normal <br>
-        <input type="radio" name="pokemon" value="Poison"> Poison<br>
-        <input type="radio" name="pokemon" value="Phychic"> Phychic <br>
-        <input type="radio" name="pokemon" value="Rock"> Rock <br>
-        <input type="radio" name="pokemon" value="Steel"> Steel <br>
-        <input type="radio" name="pokemon" value="Water"> Water <br>
+      <form id="form1">
+        <input type="radio" name="poketype" value="Bug" onclick="buttonpressed()"> Bug <br>
+        <input type="radio" name="poketype" value="Dark" onclick="buttonpressed()"> Dark <br>
+        <input type="radio" name="poketype" value="Dragon" onclick="buttonpressed()"> Dragon <br>
+        <input type="radio" name="poketype" value="Electric" onclick="buttonpressed()"> Electric <br>
+        <input type="radio" name="poketype" value="Fairy" onclick="buttonpressed()"> Fairy <br>
+        <input type="radio" name="poketype" value="Fighting" onclick="buttonpressed()"> Fighting <br>
+        <input type="radio" name="poketype" value="Fire" onclick="buttonpressed()"> Fire <br>
+        <input type="radio" name="poketype" value="Flying" onclick="buttonpressed()"> Flying <br>
+        <input type="radio" name="poketype" value="Ghost" onclick="buttonpressed()"> Ghost <br>
+        <input type="radio" name="poketype" value="Grass" onclick="buttonpressed()"> Grass <br>
+        <input type="radio" name="poketype" value="Ground" onclick="buttonpressed()"> Ground <br>
+        <input type="radio" name="poketype" value="Ice" onclick="buttonpressed()"> Ice <br>
+        <input type="radio" name="poketype" value="Normal" onclick="buttonpressed()"> Normal <br>
+        <input type="radio" name="poketype" value="Poison" onclick="buttonpressed()"> Poison<br>
+        <input type="radio" name="poketype" value="Phychic" onclick="buttonpressed()"> Phychic <br>
+        <input type="radio" name="poketype" value="Rock" onclick="buttonpressed()"> Rock <br>
+        <input type="radio" name="poketype" value="Steel" onclick="buttonpressed()"> Steel <br>
+        <input type="radio" name="poketype" value="Water" onclick="buttonpressed()"> Water <br>
+        <input type="radio" name="poketype" value="All" onclick="buttonpressed()"> ALL <br>
+      </form>
     </div>
 
     <button id="refresh" type="button" onclick="history.go()">Refresh</button>
