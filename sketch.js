@@ -65,11 +65,8 @@ let circleheight = 0;
     fill(mapColor);
 
 // check height of pokemon
-if (heights <=4) {circleheight = 200}
-if (heights >4) {circleheight = 240}
-if (heights >7) {circleheight = 270}
-if (heights >10) {circleheight = 300}
-if (heights >13) {circleheight = 330}
+if (heights <=7) {circleheight = 200}
+if (heights >7) {circleheight = 280}
 if (heights >15) {circleheight = 360}
 
     ellipse(pos+107, 180, 213, circleheight);
@@ -107,11 +104,8 @@ if (heights >15) {circleheight = 360}
     fill(mapColor);
 
     // check height of pokemon
-    if (heights <=4) {circleheight = 200}
-    if (heights >4) {circleheight = 240}
-    if (heights >7) {circleheight = 270}
-    if (heights >10) {circleheight = 300}
-    if (heights >13) {circleheight = 330}
+    if (heights <=7) {circleheight = 220}
+    if (heights >7) {circleheight = 290}
     if (heights >15) {circleheight = 360}
 
         ellipse(pos+107, 540, 213, circleheight);
@@ -123,20 +117,15 @@ if (heights >15) {circleheight = 360}
   noLoop();
 }
 
+function colorType(){
+
+}
 
 function mousePressed() {
-
   //booleanSwitch = true;
-
-  callbackFunction()
-
+  //callbackFunction()
     // all the visualization in one frame
-
-
     //preload();
-
+    //<button onclick="myRefresh()">Refresh</button
     draw();
-
-
-
 }
