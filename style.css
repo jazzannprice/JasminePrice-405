@@ -22,7 +22,40 @@ header{
   font-size: 150%;
   background-color: white;
   width: 100%;
-  height: 90px;
+  height: 100px;
+}
+
+#pokeball_img{
+  width: 30px;
+  height: 30px;
+}
+/* The header decoration */
+#rectangle{
+  width: 100%;
+  height: 10px;
+  background: black;
+}
+
+#bulbasaur_img{
+  width: 200px;
+  height: 200px;
+  padding-right: 1600px;
+  padding-top: 571px;
+}
+
+#refresh{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: black;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#refresh:hover {
+    background-color: white; /* Green */
+    color: black;
 }
 
 /* The individual footer properties, including the colour and positioning */
@@ -40,34 +73,11 @@ footer{
 
 /* Background colour */
 body{
-  /*background-image: url("background3.jpg");*/
-  background-color: white;
-  text-align: right;
-}
-
-#background{
-  width: 100%;
-  height: 100%;
-}
-/*
-#pokemon_img{
-  width: 200px;
-  height: 200px;
-}
-*/
-#refresh{
-  border: none;
-  padding: 20px 40px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-
+  background: black;
 }
 
 /* Positioning of the canvas */
 #myContainer{
   margin: 0px auto;
-  font-family: verdana;
   text-align: center;
 }

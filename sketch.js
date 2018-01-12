@@ -11,7 +11,7 @@ function preload() {
   //https://pokeapi.co/api/v2/pokemon
   for (let i=0; i<12;){
     let num = Math.floor(Math.random() * 801) + 1;
-    let url = "https://pokeapi.co/api/v2/pokemon/"+num, callbackFunction;
+    let url = "https://pokeapi.co/api/v2/pokemon/"+num;
     pokemon[i] = loadJSON(url);
     i++;
   }
@@ -65,8 +65,11 @@ let circleheight = 0;
     fill(mapColor);
 
 // check height of pokemon
-if (heights <=7) {circleheight = 200}
-if (heights >7) {circleheight = 280}
+if (heights <=4) {circleheight = 200}
+if (heights >4) {circleheight = 240}
+if (heights >7) {circleheight = 270}
+if (heights >10) {circleheight = 300}
+if (heights >13) {circleheight = 330}
 if (heights >15) {circleheight = 360}
 
     ellipse(pos+107, 180, 213, circleheight);
@@ -104,8 +107,11 @@ if (heights >15) {circleheight = 360}
     fill(mapColor);
 
     // check height of pokemon
-    if (heights <=7) {circleheight = 220}
-    if (heights >7) {circleheight = 290}
+    if (heights <=4) {circleheight = 200}
+    if (heights >4) {circleheight = 240}
+    if (heights >7) {circleheight = 270}
+    if (heights >10) {circleheight = 300}
+    if (heights >13) {circleheight = 330}
     if (heights >15) {circleheight = 360}
 
         ellipse(pos+107, 540, 213, circleheight);
@@ -115,17 +121,4 @@ if (heights >15) {circleheight = 360}
     pos = i * 213;
   }
   noLoop();
-}
-
-function colorType(){
-
-}
-
-function mousePressed() {
-  //booleanSwitch = true;
-  //callbackFunction()
-    // all the visualization in one frame
-    //preload();
-    //<button onclick="myRefresh()">Refresh</button
-    draw();
 }

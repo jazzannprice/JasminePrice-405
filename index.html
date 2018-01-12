@@ -12,14 +12,16 @@
     <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
   </head>
   <body>
-    <header><h1> Jasmine Price - Pokemon Database </h1>
-      <!--<img id="pokemon_img" src="bulbasaur.png" alt="Pokemon">-->
+    <header><h1> Jasmine Price - Pokemon Database <img id="pokeball_img" src="pokeball.png" alt="Pokeball">
+      <img id="bulbasaur_img" src="bulbasaur.png" alt="Pokemon">
+    </h1>
+      <div id="rectangle"> </div> <!-- Creates the header decoration -->
     </header> <!-- Creates the header of my page -->
+    <form><input id="refresh" type=button value="Refresh" onClick="history.go()"></form>
       <div class="container"> <!-- Creates a divider for adjusting the position of the elements on page -->
           <div id="myContainer"></div> <!-- Creates a divider for my canvas -->
         </div>
               </div>
-              <form><input id="refresh" type=button value="Refresh" onClick="history.go()"></form>
-    <footer><h1> Data Visualization </h1><h1 class = "newFooter"> 405 - Creative Coding </h1> </footer> <!-- Creates the footer of my page -->
+    <footer><h1> Data Visualization </h1><h1 class = "newFooter"> 405-Creative Coding Project </h1> </footer> <!-- Creates the footer of my page -->
   </body>
 </html>
